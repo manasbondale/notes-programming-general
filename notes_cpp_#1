@@ -1,0 +1,34 @@
+For header files :
+#ifndef HEADERFILENAME_H
+#define HEADERFILENAME_H
+//your code
+#endif
+
+-Prevents recursive and double inclusion, are called include guards
+
+command line:
+
+gcc -std=c++11 -o filename main.cpp main2.cpp ....
+
+-std= c++11 c++14 c++17
+
+The following are deprecated 0x 1y 1z
+
+-x specifies explicitly the language to be used //unnecessary
+
+-o filename
+filename is the name of the .out file . default is a.out
+
+-O
+-O1
+-O2
+-O3
+
+optimizations. O < O1 < O2 < O3. Increase performance of out file. But also increases compile time.
+
+main.cpp main2.cpp ...
+
+list of files (cpp) to be compiled in the output file filename.out
+There can only be one main function among all the files.
+
+Slicing is when a derived class object is assigned to a base class object. member variables unique to the derived class belonging to this derived class object lose their value because of the assignment to base class object.

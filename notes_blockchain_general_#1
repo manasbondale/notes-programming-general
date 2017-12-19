@@ -1,0 +1,17 @@
+Mining
+
+the proof of work relies on the difficulty of generating a hash.
+while a hash is easy to generate, there are in place some arbitrary constraints on what the hash can be.
+in a simplified version, there need to be a certain number of zeroes at the start of a hash for it to be valid.
+after each unsuccessful attempt at generating a hash that did not meet the requirements, a '_nNonce' variable is updated so that the next hash generated is different.
+
+for bitcoins, the difficulty sets itself in a way that at the rate at which currently mining is being by all miners, they can all in total generate only 2016 blocks every fortnight : that's 1 block every 10 minutes.
+
+currently the award/bounty for generating a block is 12.5 bitcoins per block. this rate halves every 210000 blocks.
+eventually as this bounty dwindles the incentive for mining a block will mainly rely on the transaction fees collected for every transactions. this also gives miners an incentive to include as many transactions as they can into one block.
+
+Hashing
+
+Hashes used  hash256 = sha-256(sha-256(d)) and hash160 = RIPEMD-160(sha-256(d)) returning 32 byte and 20 byte hash respectively
+
+hash256 is used for identifier which identify blocks and transactions. a hash256 is unique to its block and you are guaranteed that it will be never be repeated again for another block in the future.\
