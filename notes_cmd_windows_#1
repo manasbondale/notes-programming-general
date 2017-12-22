@@ -1,0 +1,7 @@
+"NUL" or invalidly named files cannot be manually deleted.
+As the filename itself is invalid.
+Windows parses the filename before deleting and this is where the error occurs.
+To delete such a file use the following command-line to rename it without parsing it.
+C:\> rename \\.\C:\...\NUL. deletefile.txt
+and then delete it.
+The string "\\.\" tells the command-prompt not to parse the filename during execution of command.

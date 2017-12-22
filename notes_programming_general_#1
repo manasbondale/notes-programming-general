@@ -11,6 +11,7 @@ Perl was downloaded from www.activestate.com
 shell commmand : perl -v to check installation
 shell command : cpan (installed ansi and mingw 4.3.2 and dmake.... whatever)
 shell command : cpan -i Text::Template (installed the perl module text template, for installing openssl)
+Better yet, get perl from cygwin.
 
 Before attempting anything, google for shortcuts at least five times!!!
 
@@ -22,8 +23,9 @@ Finally installed openssl using cygwin64. Used for:
 Cygwin
 To install new packages, reinstall cygwin with setup.
 When selecting packages to install, select only bin as it is the final executable. src is the source code.
-For openssl, select openssl under net
+For openssl, select under net : openssl 
 For cpp and make, select under devel : gcc-g++ , gdb , make
+For perl, select under perl : perl
 
 Batch script to automate git backup
 //Following script is run once at start
