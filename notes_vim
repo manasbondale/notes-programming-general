@@ -1,0 +1,76 @@
+Keys
+
+Esc to command mode
+i to insert mode
+
+h j k l
+left down up right
+
+Ctrl+f scroll forward one page
+Ctrl+b scroll backward one page
+
+3G move to the 3rd line of the line
+4H move to the 4th line of the screen
+5L move to the 5th last line of the screen
+
+:q quit without saving changes
+:w write to file
+:w <filename> save as filename
+ZZ write to file and quit
+
+:e! reload disk copy of file. Essentially removes all changes made in session since last !w and reopens file.
+
+:! to type a commandline command. Prompt after output to return to vi
+
+i to insert before character at cursor
+a to insert after character at cursor
+I to insert at beginning of line under cursor
+A to insert at end of line under cursor
+c to change selected character
+cw to change the remainder of word pointed to
+3cw to change the remainder of the word pointed to and 2 more
+c$ to change the remainder of line
+dw (same as cw) insert mode is not entered
+dd delete current line
+3dd delete current and further 2 lines
+x delete character after cursor
+p paste last deleted character to the right of character after cursor
+o to insert a new line below line under cursor and change to insert mode
+O to insert a new line above line under cursor and ...
+
+/ followed by regex to search forward for first instance.
+? followed by regex to search backward for first instance.
+3/ third instance
+4?
+n repeat last search command
+
+:e <filename> to open file from within vim
+:Ex <directory or blank> ls on directory
+
+v
+Select character
+
+V select line
+
+y
+yank / copy
+
+p
+paste yank
+
+gp
+paste yank and move cursor to end of pasted
+
+.
+paste last insert mode
+
+Registers
+
+Select text
+"ay to yank to 'a' register
+
+"ap to paste contents of 'a' register
+
+:reg to view all registers content
+
+:reg a b to view reg content of a and b 

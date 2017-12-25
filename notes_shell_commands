@@ -1,0 +1,196 @@
+In bash 0 means boolean true and non-zero means boolean false
+
+Symbols
+username@hostname:~$
+~ means home directory
+$ means regular user
+# means super user
+
+Commands
+
+pwd
+Prints present working directory address
+
+passwd
+To change user password
+
+sudo passwd
+To change root password
+
+rm <filename>
+To delete filename
+
+rm -r <foldername>
+deletes folder
+
+cp <relative or absolute directory to source file or folder> <relative or absolute directory to target file or folder>
+mv <relative or absolute directory to source file or folder> <relative or absolute directory to target file or folder>
+Options:
+-b create backup of any replaced file in the process
+
+mv <file in directory> <new name in same directory>
+To rename file
+
+ls
+Lists file and folders in pwd
+Options
+-i lists the inode of all files in current directory. inode is a number that identifies each file and folder.
+-iR same as ls -i but recursively executes command on all constituent directories
+-l lists with last modified timestamp
+
+cd <foldername>/
+Opens folder. To open folder with spaces in name like My Documents, type cd My\ Documents/ or type cd "My Documents"
+
+mkdir <foldername> <foldername2> <foldername3> ...
+Creates foldername folder. Doesn't open that folder.
+
+find
+To search current directory and children directories for file using Options
+-name "glob" searches only file name
+-wholename "glob" searches whole path name of file
+-iname same but case-insensitive
+-iwholename ...
+
+less <textfilename>.txt
+To print contents of textfile in terminal. Press 'q' to return to terminal.
+
+echo ABC
+prints ABC. Echo options:
+-e Enables escape functions
+\a alert
+\b backspace
+\c disallow trailing newspace
+\n new line
+\f form feed
+\r carriage return
+\\ prints \
+\t horizontal tab
+Metacharacters &|;<>() should be in quotes or escaped using backslash \ to print literally
+; is used to separate multiple commandline instructions on a single line
+A&&B B is executed only if A returns 0 exit code
+A||B B is executed only if A returns non-zero exit code
+echo, for instance, returns 0 as exit code.
+A&&C||B if A returns 0, C is executed otherwises B
+In linux shell, 0 represents successful execution(true) and non-zero represents alternative result(false)
+
+exit <number>
+Exits shell or subshell with number as the exit code.
+
+chsh -s /bin/bash
+Assigns bash as default shell, unless it isn't.
+
+env
+Lists the current environment variables and their values
+
+uname
+-s prints kernel name
+-n prints hostname
+-r prints kernel release
+-v prints kernel version
+-m prints machine's hardware name
+-o prints OS name
+-a prints all of the above
+
+history
+Prints history of commandline instructions
+N prints last N lines of history
+-d N deletes last N lines
+!N prints Nth command of history
+!-N prints Nth last command of history
+!! prints last command
+!string prints last command that started with 'string'
+!?string? prints the last command that contains 'string'
+
+declare -i p q r
+Declares p q r as integer variables
+
+p="3"
+sets p to 3
+
+q="p+3"
+sets q to p+3
+
+((q = p + 3))
+(()) allows for whitespaces
+
+test 3 -gt 4 && echo true || echo false
+test executes a conditional and return 0 if true and 1 if false
+-gt greater than
+-ge greater than or equal to
+-lt
+-le
+-eq equal
+-ne not equal
+
+[ conditional ]; echo $?
+[] executes conditional and echo $? (last exit code) echoes 1 if false and 0 if true
+
+[ "abc" = "def ] equal to
+[ "abc" != "def ] not equal to
+[ "abc" \< "def ] less than (alphabetically)
+\> more than (alphabetically)
+-n not zero
+-z zero
+
+Bash programs
+
+sudo apt-get //as a regular user
+apt-get //as a super user
+Used for installing packages. Following commands
+install for installing
+remove for removing
+clean for clearing local repository
+check for checking for missing dependencies, is a diagnostics tool
+update for updating track of respositories
+upgrade for upgrading all installed packages to their latest version
+Options :
+
+-y auto-yes to every prompt except critical
+--force-yes yes to all prompts including critical
+-v show version
+
+sudo add-apt-repository
+Adds repository from which to download from using apt-get
+
+sudo apt-cache search
+To list all available downloads (must give at least one search term)
+Options: -n to list names only
+
+Globbing
+Used to apply the same command to all files matches regex
+Wildcard expressions :
+* matches any string including empty string
+? matches any single character
+[  ] matches any character between the brackets.
+  To match ], it must first in the brackets.
+  To match range, 0-9 a-f A-Z.
+  To match complement of range [!0-9] must be at start or ! is matched instead.
+
+sleep 60
+sleeps for 60 seconds. Used in bash blocks
+
+Compression programs:
+gzip file
+gunzip file.gz
+Based on Lempel-Ziv algo
+
+bzip2 file
+bzip2 file.bz2
+Based on Burrow-Wheeler block sorting algo
+
+xz file
+unxz file.xz
+Based on Lempel-Ziv-Markov chain algo
+
+Archiving files :
+
+tar filenames...
+To archive all the files in a 'tarball'
+Options
+-cf <output directory> creates archive
+-x extract a tarball
+-z uses gzip
+-b uses bzip2
+-J uses xz
+-r to append files to a tarball
+-d to output difference between two tarballs

@@ -1,0 +1,44 @@
+Shell theory
+stdin stdout stderr are the input output and error streams respectively
+
+Environment variables
+In commandline instruction these must be referenced by prepending $ to their name. e.g. $PATH or $$
+${PATH} also works the same
+
+HOME home dir
+PATH path env
+UID user id
+USER user name
+PWD present working directory
+SHELL name of the shell
+$ process id
+PPID parent process id
+? exit code of previously executed command.
+
+History
+history is on by default.
+To turn it off :~$ set +o history
+To turn it on :~$ set -o history
+
+PATH is colon-separated directories where bash will search for commands to execute from
+
+Functions
+testfunc () { echo "$# $@ parameters"; echo "$1"; }
+
+$# is number of parameters
+$1 is the first parameter
+$@ all the parameters altogether in order of passing
+
+testfunc e r t
+3 e r t parameters e
+
+There must be a space between { and the first line of function body/ commandline.
+
+To test whether a directory already belongs to PATH:
+$ augpath = ":$PATH:" //creates string array delimited by ':'
+$ augdir = ":<yourdirectory>:" // creates same as above but with only <yourdirectory> as member
+$ test "$augpath" != "${augpath/$augdir}" && echo Found || echo Not Found
+
+"${augpath/$augdir}" creates a string array delimited by ':' that is basically augpath without augdir
+test returns 0 if != and then executes echo Found
+test returns 1 if == and then executes echo Not found
