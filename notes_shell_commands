@@ -6,6 +6,11 @@ username@hostname:~$
 $ means regular user
 # means super user
 
+Keyboard shortcuts
+Ctrl+Shift+V Paste
+Ctrl+A go to beginning of line
+Ctrl+K erase line forward from cursor
+
 Commands
 
 pwd

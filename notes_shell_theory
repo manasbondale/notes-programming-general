@@ -15,6 +15,15 @@ $ process id
 PPID parent process id
 ? exit code of previously executed command.
 
+To set a environment variable :
+$export PATH = "..."
+
+To add current directory to PATH :
+$export PATH = "$PATH:$(pwd)"
+
+To permanently add 'current directory' to PATH : //this is discouraged
+$export PATH = "$PATH:." 
+
 History
 history is on by default.
 To turn it off :~$ set +o history
@@ -26,7 +35,7 @@ Functions
 testfunc () { echo "$# $@ parameters"; echo "$1"; }
 
 $# is number of parameters
-$1 is the first parameter
+$n is the nth parameter
 $@ all the parameters altogether in order of passing
 
 testfunc e r t
@@ -42,3 +51,11 @@ $ test "$augpath" != "${augpath/$augdir}" && echo Found || echo Not Found
 "${augpath/$augdir}" creates a string array delimited by ':' that is basically augpath without augdir
 test returns 0 if != and then executes echo Found
 test returns 1 if == and then executes echo Not found
+
+./a.out
+./
+.
+The current directory is represented by .
+We cannot execute executables that are not pointed to in $PATH
+To momentarily by-pass that restriction and execute something in the current directory we use ./executable
+which literally means current-directory/executable
