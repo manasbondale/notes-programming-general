@@ -36,6 +36,6 @@ git config --global credential.helper cache
 git config --global credential.helper 'cache --timeout=604800'  //for caching for a week's time
 
 Setting push.default.
-Under config, set visibility to global and then change push.default
+//Under config, set visibility to global and then change push.default
 git config --global push.default matching //old method. pushes to same named repository. BAD
 git config --global push.default simple //new method . pushes to where pulled from. GOOD
