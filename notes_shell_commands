@@ -180,8 +180,11 @@ gunzip file.gz
 Based on Lempel-Ziv algo
 
 bzip2 file
-bzip2 file.bz2
 Based on Burrow-Wheeler block sorting algo
+
+To decompress bzip2
+bzip2 -d file.bz2 //deletes archive
+bzip2 -dk file.bz2 //retains archive
 
 xz file
 unxz file.xz
@@ -189,7 +192,8 @@ Based on Lempel-Ziv-Markov chain algo
 
 Archiving files :
 
-tar filenames...
+tar -cvf tarballname.tar /pathtodirectory
+tar -cvf tarballname.tar files or path to files
 To archive all the files in a 'tarball'
 Options
 -cf <output directory> creates archive
@@ -199,3 +203,42 @@ Options
 -J uses xz
 -r to append files to a tarball
 -d to output difference between two tarballs
+
+split 
+To split a file
+example
+split -l 10 file1 g
+splits file1 into files with 10 lines of file1 each with names starting with g
+
+grep or fgrep
+To search in a file for a character sequence and return list of lines containing that sequence
+grep -options charseq filename
+
+options
+w to search for the character sequence as separate word in the files
+i to search case insensitively
+f to use a file containing various line separated character sequences to search for instead of a character sequence
+
+fgrep -v dog * to search for all lines without dog in it
+
+character sequences options in grep  - use these only between ""
+* matches zero or more of preceding regex
+\+ basically * for more than one preceding regex
+\? indicates previous regex is optional
+. matches any one character
+.* matches any string
+
+^..b matches any word with start ..b i.e. any two characters and then  b
+..b$ matches any word with end ..b
+^$ matches empty lines
+
+\(an\) matches an within a word
+[ ] matches any one character from between the []
+
+[] can include any of the following predefined classes
+
+:alnum:
+:blank:
+:digit:
+:upper:
+:lower:

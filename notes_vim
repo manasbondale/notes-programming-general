@@ -12,10 +12,17 @@ Ctrl+b scroll backward one page
 3G move to the 3rd line of the line
 4H move to the 4th line of the screen
 5L move to the 5th last line of the screen
+G to move to end of file
+gg to move to start of file
+
+e move to end of word
+b move to start of prev word
+w move to start of next word
 
 :q quit without saving changes
 :w write to file
 :w <filename> save as filename
+:wq to save and quit
 ZZ write to file and quit
 
 :e! reload disk copy of file. Essentially removes all changes made in session since last !w and reopens file.
@@ -54,6 +61,9 @@ V select line
 
 y
 yank / copy
+
+yw
+yank word
 
 p
 paste yank

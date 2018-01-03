@@ -31,8 +31,26 @@ main.cpp main2.cpp ...
 list of files (cpp) to be compiled in the output file filename.out
 There can only be one main function among all the files.
 
+-c creates object file *.o
+
+
 Execute with ./a.out unless -o compiler option is used in which case use ./newname
 ./ refers to current directory
 This is used to by pass the restriction that we cannot execute from the commandline any program that is not directed to by the $PATH variable
 
 Slicing is when a derived class object is assigned to a base class object. member variables unique to the derived class belonging to this derived class object lose their value because of the assignment to base class object.
+
+To communicate with commandline 
+include cstdlib and use std::system("your command");
+or include stdlib.h and use system();
+
+Creating a static or shared library (Source :https://stackoverflow.com/questions/10358745/how-to-use-libraries )
+Static
+g++ -c unuseful.cpp #creates object file
+ar rcs libunuseful.a unuseful.o #creates static library . Must prefix with lib and use .a extension 
+
+Shared
+g++ -fPIC -c unuseful.cpp #fPIC and c create Position Independent Code
+g++ -shared -o libunuseful.so unuseful.o # shared option creates shared library file . new name after -o must start with lib and end with .so
+
+
