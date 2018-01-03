@@ -52,3 +52,13 @@ ar rcs libunuseful.a unuseful.o #creates static library . Must prefix with lib a
 Shared
 g++ -fPIC -c unuseful.cpp #fPIC and c create Position Independent Code
 g++ -shared -o libunuseful.so unuseful.o # shared option creates shared library file . new name after -o must start with lib and end with .so
+
+To use shared library:
+The compilation commandline is
+g++ main.cpp -L. -lunuseful
+
+-L option followed by directory sets the directory to search for external libraries
+-l option followed by name without the lib prefix selects the library to be used
+
+Since shared libraries are loaded dynamically and are included at runtime, set the following environment variable
+export LD_LIBRARY_PATH = $LD_LIBRARY_PATH:. #appends the pwd to the LD_LIBRARY_PATH env variable
