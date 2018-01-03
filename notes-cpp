@@ -58,7 +58,11 @@ The compilation commandline is
 g++ main.cpp -L. -lunuseful
 
 -L option followed by directory sets the directory to search for external libraries
--l option followed by name without the lib prefix selects the library to be used
+-l option followed by name without the lib prefix selects the library to be used . Here the .so extension is also not used
 
 Since shared libraries are loaded dynamically and are included at runtime, set the following environment variable
 export LD_LIBRARY_PATH = $LD_LIBRARY_PATH:. #appends the pwd to the LD_LIBRARY_PATH env variable
+If LD_LIBRARY_PATH is set then -L is not needed and vice versa
+
+Virtual Destructors
+When using a base class pointer to an inherited class object, 
